@@ -10,7 +10,7 @@ public class Producto
     // instance variables - replace the example below with your own
     private String nombre;
     private int precio;
-
+    private int cantidad;
     /**
      * Constructor for objects of class Producto
      */
@@ -19,28 +19,29 @@ public class Producto
         // initialise instance variables
         nombre="";
         precio=0;
+        cantidad=0;
     }
 
      /**
-     * An example of a method - replace this comment with your own
+     * Metemos por parámetro las caracteristicas del producto.
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * @param  Un nombre(String), un precio(int) y una cantidad(int)
+     * 
      */
-    public void insertaValores(String nombre, int precio)
+    public void insertaValores(String nombre, int precio, int cantidad)
     {
     
         this.nombre=nombre;
         
         this.precio=precio;
         
+        this.cantidad=cantidad;
     }
     
        /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+  
+     * @param  (String)
+     * @return   Devuelve el nombre del producto
      */
     public String getnombre()
     {
@@ -49,14 +50,14 @@ public class Producto
     }
     
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * 
+     * @param  (int)
+     * @return    Devuelve el precio del producto
      */
     public int getPrecio()
     {
         // put your code here
         return precio;
     }
+
 }
