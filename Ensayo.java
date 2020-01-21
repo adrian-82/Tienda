@@ -1,19 +1,19 @@
 
 /**
- * Write a description of class rthtefjnhgdmnhgdmhgmghmhgdmhg here.
- *
- * @author (your name)
+ * Write a description of class Ensayo here.
+ * 
+ * @author (your name) 
  * @version (a version number or a date)
  */
-public class rthtefjnhgdmnhgdmhgmghmhgdmhg
+public class Ensayo
 {
     // instance variables - replace the example below with your own
     private int x;
 
     /**
-     * Constructor for objects of class rthtefjnhgdmnhgdmhgmghmhgdmhg
+     * Constructor for objects of class Ensayo
      */
-    public rthtefjnhgdmnhgdmhgmghmhgdmhg()
+    public Ensayo()
     {
         // initialise instance variables
         x = 0;
@@ -21,9 +21,9 @@ public class rthtefjnhgdmnhgdmhgmghmhgdmhg
 
     /**
      * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * 
+     * @param  y   a sample parameter for a method
+     * @return     the sum of x and y 
      */
     public int sampleMethod(int y)
     {
