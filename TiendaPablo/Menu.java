@@ -1,3 +1,5 @@
+package TiendaPablo;
+
 import java.util.Scanner;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -24,7 +26,7 @@ public class Menu
             System.out.println("2-...Ver todos los Productos.");                        
             System.out.println("3-...Ver Producto/Pedido específico.");                  /*Listar pedidos y  localizar pedido por la clave*/
 
-                                                                                    /*listar todos los productos*/   /*id aleatorio*/
+            /*listar todos los productos*/   /*id aleatorio*/
             System.out.println("99   -...Salir.");
 
             System.out.println("Introduzca una opción, por favor!");
@@ -47,23 +49,23 @@ public class Menu
                 break;
                 case 3:
                 pedidoCodigoBarras();
-                
-               /* listarPedidos();*/
+
+                /* listarPedidos();*/
 
                 break;
             }
-            
+
         }while(opcion!=99);
 
     }
 
     public void anadirProductoPedido()
     {
+
         Scanner sc=new Scanner(System.in);
         HashMap<String, Long> nombreProductoCodigoBarras=new  HashMap<>();
         colProducts=new ArrayList();
-        
-        
+
         String nombre="";
         float precio=0;
         long codigo_de_barras=0;
@@ -72,33 +74,39 @@ public class Menu
         String cliente="";
         long id=0;
         String direccion="";
-
+        Producto producto= new Producto(nombre, precio, codigo_de_barras, fabricante);
         System.out.println("Ingrese el nombre del producto, por favor");
 
-        
-
-       nombre = sc.nextLine();
-       producto.setNombre(nombre);
-        
+        nombre = sc.nextLine();
+        producto.setNombre(nombre);
         nombre=producto.getNombre();
 
         System.out.println("Ingrese el precio del producto, por favor");
-        producto.setPrecio(sc.nextFloat());
+
+        precio = sc.nextFloat();
+        producto.setPrecio(precio);
         precio=producto.getPrecio();
 
         System.out.println("Ingrese el fabricante del producto, por favor");
-        producto.setFabricante(sc.nextLine());
+
+        sc.nextLine();
+        fabricante =sc.nextLine();
+        producto.setFabricante(fabricante);
         fabricante=producto.getFabricante();      
 
         System.out.println("Ingrese el código de barras del producto, por favor");
-        producto.setCodigo_de_barras(sc.nextLong());
+        sc.nextLine();
+        codigo_de_barras =sc.nextLong();
+        producto.setCodigo_de_barras(codigo_de_barras);
+
         codigo_de_barras=producto.getCodigo_de_barras();
 
-        Producto producto= new Producto(nombre, precio, codigo_de_barras, fabricante);
 
         nombreProductoCodigoBarras.put(nombre,producto.getCodigo_de_barras());                                                           /* nombre y codigo barras*/
+        
         colProducts.add(nombre);
     }
+
     public void verProductos()
     {
 
@@ -108,10 +116,8 @@ public class Menu
         Iterator it = colProducts.iterator();
         while (it.hasNext()) 
         {
-            
-    
-            
-            System.out.println(colProducts + ", Value = " + nombreProductoCodigoBarras.get(it));
+
+            System.out.println(it + ", Value = " + nombreProductoCodigoBarras.get(it));
         }
 
     }
@@ -138,5 +144,5 @@ public class Menu
         pedidoCodigoBarras.put(cliente, pedido.getId());
 
     }
-    
+
 }

@@ -1,3 +1,4 @@
+package TiendaPablo;
 
 /**
  * Write a description of class Empiece here.

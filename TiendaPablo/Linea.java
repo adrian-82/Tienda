@@ -1,3 +1,4 @@
+package TiendaPablo;
 /**
  * Clase que representa una línea.
  * Almacena el producto y la cantidad de veces que se ha comprado.
