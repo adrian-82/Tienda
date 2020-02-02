@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.target=Linea
+comment0.text=\r\n\ Clase\ que\ representa\ una\ l\u00EDnea.\r\n\ Almacena\ el\ producto\ y\ la\ cantidad\ de\ veces\ que\ se\ ha\ comprado.\r\n\ @author\ Pablo\ Rubio\r\n\ @version\ 1\r\n\ @see\ Producto\r\n
+comment1.params=producto\ cantidad
+comment1.target=Linea(Producto,\ int)
+comment1.text=\r\n\ Constructor\ de\ la\ calse\ Linea.\r\n\ @param\ producto\ Producto\ de\ la\ linea.\r\n\ @param\ cantidad\ Cantidad\ de\ Veces\ que\ se\ ha\ a\u00F1adido\ al\ pedido.\r\n
+comment2.params=
+comment2.target=Producto\ getProducto()
+comment3.params=producto
+comment3.target=void\ setProducto(Producto)
+comment4.params=
+comment4.target=int\ getCantidad()
+comment5.params=cantidad
+comment5.target=void\ setCantidad(int)
+comment6.params=
+comment6.target=long\ getId()
+comment6.text=\r\n\ Obten\ el\ id\ de\ la\ linea\ que\ coincide\ con\ el\ codigo\ de\ barras\ del\ producto.\r\n\ @return\ id\ de\ la\ linea,\ identica\ al\ c\u00F3digo\ de\ barras\ del\ producto.\r\n
+comment7.params=
+comment7.target=float\ getPrecioLinea()
+comment7.text=\r\n\ \ Obtienes\ el\ precio\ total\ de\ la\ linea.\r\n\ @return\ precio\ del\ producto\ *\ cantidad.\r\n
+comment8.params=
+comment8.target=java.lang.String\ toString()
+comment8.text=\r\n\ M\u00E9todo\ toString\ reducido.\r\n\ @return\ devuelve\ el\ nombre\ del\ producto,\ precio,\ veces\ comprado\ y\ precio\ completo\ de\ la\ linea.\r\n
+comment9.params=
+comment9.target=java.lang.String\ toStringComplete()
+comment9.text=\r\n\ M\u00E9todo\ toString\ completo.\r\n\ @return\ devuelve\ el\ m\u00E9todo\ toString\ de\ Producto,\ veces\ comprado\ y\ precio\ completo\ de\ la\ linea.\r\n\ \r\n\ @see\ Producto\r\n
+numComments=10

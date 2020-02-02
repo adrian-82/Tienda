@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Menu
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Men\u00FA\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=void\ interactuar()
+comment2.params=
+comment2.target=void\ anadirProductoPedido()
+comment3.params=
+comment3.target=void\ verProductos()
+comment4.params=
+comment4.target=void\ pedidoCodigoBarras()
+comment4.text=a\u00F1adir\ un\ pedido,\ con\ un\ codigo\ de\ barras(HashMap)
+numComments=5
