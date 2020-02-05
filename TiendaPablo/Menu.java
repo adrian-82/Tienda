@@ -12,23 +12,37 @@ import java.util.ArrayList;
  */
 public class Menu
 {
+    private String cliente;
+    private long id;
     private String nombre;
+    private long codBarras;
     Producto producto;
     Pedido pedido;
     HashMap<String, Long> nombreProductoCodigoBarras;
+    HashMap< Long, String> pedidoCodigoBarras;
     ArrayList<String>colProducts;
+    ArrayList<String>clientes;
     private int opcion;
+
+    
+    /**
+     * Menú para interactuar con el usuario.
+     * Introducción de una opción
+     */
     public  void interactuar()
     {
+
         do{
             Scanner teclado=new Scanner(System.in);
-            System.out.println("1-...Añadir Productos.");                          /*añadir un pedido, con un codigo de barras(HashMap)*/
-            System.out.println("2-...Ver todos los Productos.");                        
-            System.out.println("3-...Ver Producto/Pedido específico.");                  /*Listar pedidos y  localizar pedido por la clave*/
-
-            /*listar todos los productos*/   /*id aleatorio*/
+            System.out.println();  
+            System.out.println("1-...Añadir Productos.");                     /*añadir un pedido, con un codigo de barras(HashMap)*/
+            System.out.println("2-...Ver todos los Productos.");              /*listar todos los productos*/
+            System.out.println("3-...AsignarPedido/CodigoBarras.");             /*id aleatorio*/
+            System.out.println("4-...Buscar un pedido(por codigo de barras)");
+            System.out.println("5-...Ver todos los Pedidos/CodigoBarras.");      /*Listar pedidos y  localizar pedido por la clave*/
+                                                                          
             System.out.println("99   -...Salir.");
-
+            System.out.println(); 
             System.out.println("Introduzca una opción, por favor!");
             /*añadir productos hasta que la persona quiera(-1)*/
             int opcion=teclado.nextInt();
@@ -42,23 +56,43 @@ public class Menu
                 anadirProductoPedido();
 
                 break;
+                
                 case 2:   
 
                 verProductos();                                                                 /*ver productos con su cod de barras*/
 
                 break;
+                
                 case 3:
-                pedidoCodigoBarras();
 
-                /* listarPedidos();*/
+                asignarPedidoCodigoBarras();
+
+                 break;
+                 
+                case 4:   
+
+                buscar1PedidoCodigoBarras();                                                       /*ver productos con su cod de barras*/
 
                 break;
+
+                case 5: 
+                
+                mostrarPedidoCodigoBarras();
+                                                               
+                break;
+                
+                default:
+             
             }
 
         }while(opcion!=99);
 
     }
 
+    /**
+     * Añade un producto con sus caracteristicas.
+     *
+     */
     public void anadirProductoPedido()
     {
 
@@ -66,7 +100,7 @@ public class Menu
         HashMap<String, Long> nombreProductoCodigoBarras=new  HashMap<>();
         colProducts=new ArrayList();
 
-        String nombre="";
+        /* String nombre="";*/
         float precio=0;
         long codigo_de_barras=0;
         String fabricante="";
@@ -95,54 +129,89 @@ public class Menu
         fabricante=producto.getFabricante();      
 
         System.out.println("Ingrese el código de barras del producto, por favor");
-        sc.nextLine();
+
         codigo_de_barras =sc.nextLong();
         producto.setCodigo_de_barras(codigo_de_barras);
 
-        codigo_de_barras=producto.getCodigo_de_barras();
+        nombreProductoCodigoBarras.put(nombre,producto.getCodigo_de_barras());
 
-
-        nombreProductoCodigoBarras.put(nombre,producto.getCodigo_de_barras());                                                           /* nombre y codigo barras*/
-        
         colProducts.add(nombre);
     }
 
+    /**
+     * Muestra los productos y sus precios.
+     *
+     */
     public void verProductos()
     {
 
         System.out.println();
         System.out.println("La lista de productos y codigo de barras es:");
 
-        Iterator it = colProducts.iterator();
+        Iterator it = nombreProductoCodigoBarras.entrySet().iterator();
+
         while (it.hasNext()) 
         {
 
-            System.out.println(it + ", Value = " + nombreProductoCodigoBarras.get(it));
+            System.out.println(it.next() + ", Value = " + nombreProductoCodigoBarras.get(it.next()));
+
         }
 
     }
 
     /*añadir un pedido, con un codigo de barras(HashMap)*/
-    public void pedidoCodigoBarras()
+
+    /**
+     * Asigna a un pedido un código de barras aleatório
+     *
+     */
+    public void asignarPedidoCodigoBarras()
     {
+        
+        clientes= new ArrayList();
+        Pedido pedido=new Pedido(cliente, id);
         Scanner sc=new Scanner(System.in);
-
-        HashMap<String, Long> pedidoCodigoBarras=new HashMap<>();
-
-        String cliente="";
-        long id=0;
+        HashMap<Long, String> pedidoCodigoBarras=new HashMap<>();
 
         System.out.println("Ingrese el nombre del cliente del pedido, por favor");
         pedido.setCliente(sc.nextLine());
         cliente=pedido.getCliente();
 
+        
         System.out.println("Ingreso de codigo de barras aleatorio.");
-        /*hago en la otra clase un método solo para extraer un id*/
-
-        Pedido pedido=new Pedido(cliente, id);
-
-        pedidoCodigoBarras.put(cliente, pedido.getId());
-
+        pedidoCodigoBarras.put(pedido.getId(), cliente);        
+        clientes.add(cliente);
+     
     }
 
+    public void buscar1PedidoCodigoBarras()
+    {
+        
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Ingrese el codigo de barras del pedido.");
+     
+       codBarras=sc.nextLong();
+       System.out.println(codBarras + "....." +   pedidoCodigoBarras.get(id));
+       
+    
+    
+    }
+    
+    
+    /**
+     * Muestra cada pedido el código de barras asignado previamente.
+     *
+     */
+    public void mostrarPedidoCodigoBarras()
+    {
+ 
+        Iterator it1= clientes.iterator();
+
+        while(it1.hasNext())
+        {
+
+            System.out.println(it1.next() + "...." +  pedidoCodigoBarras.get(it1));
+
+        }
+    }  
 }
