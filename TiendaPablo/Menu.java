@@ -41,7 +41,7 @@ public class Menu
             System.out.println("4-...Buscar un pedido(por codigo de barras)");
             System.out.println("5-...Ver todos los Pedidos/CodigoBarras.");      /*Listar pedidos y  localizar pedido por la clave*/
                                                                           
-            System.out.println("99   -...Salir.");
+            System.out.println("numero negativo   -...Salir.");
             System.out.println(); 
             System.out.println("Introduzca una opción, por favor!");
             /*añadir productos hasta que la persona quiera(-1)*/
@@ -85,7 +85,7 @@ public class Menu
              
             }
 
-        }while(opcion!=99);
+        }while(opcion<0); // Salir con un numero negativo 
 
     }
 
@@ -189,9 +189,11 @@ public class Menu
         
        Scanner sc=new Scanner(System.in);
        System.out.println("Ingrese el codigo de barras del pedido.");
-     
+       
+       
+        
        codBarras=sc.nextLong();
-       System.out.println(codBarras + "....." +   pedidoCodigoBarras.get(id));
+       System.out.println(codBarras + "....." +   pedidoCodigoBarras.get(id));//Pienso que deberiamos llamar al metodo 
        
     
     
