@@ -65,11 +65,11 @@ public class Pedido {
      * @param random Objeto random para generar una id aleatoria para el pedido.
      */
    
-        public void  Pedido(Random random)
+        public void  generadorId()
     {
 
-        this.id = random.nextLong();
-
+        
+        this.id =(long) (Math.random()*100000000);
     }
     
     
